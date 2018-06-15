@@ -1,0 +1,66 @@
+/.idea/workspace.xml
+/.gradle
+
+*~
+*.DS_Store
+# Ignore all dotfiles...
+.*
+# except for .gitignore
+!.gitignore
+
+# built application files
+*.apk
+*.ap_
+
+# files for the dex VM
+*.dex
+
+# Java class files
+*.class
+
+# generated files
+bin/
+gen/
+build/
+release/
+*/bin/
+*/gen/
+*/build/
+*/release/
+
+# proguard stuff		
+proguard/		
+proguard-project.txt
+
+# Local configuration file (sdk path, etc)	
+local.properties
+project.properties	
+ant.properties	
+lint.xml	
+build.xml	
+.classpath	
+.project
+.settings	
+
+# IntelliJ IDEA
+.idea/
+*.eml
+*.iml
+*.ipr
+*.iws
+*.log/app/src/main/res/cryptowallpapertwo.png
+/app/src/main/res/drawable-hdpi/cryptowallpaperone.png
+/app/src/main/res/drawable-hdpi/cryptowallpapertwo.png
+/app/src/main/res/drawable-mdpi/cryptowallpaperone.png
+/app/src/main/res/drawable-mdpi/cryptowallpapertwo.png
+/app/src/main/res/drawable-xxhdpi/cryptowallpaperone.png
+/app/src/main/res/drawable-xxhdpi/cryptowallpapertwo.png
+/app/src/main/res/drawable-xxxhdpi/cryptowallpaperone.png
+/app/src/main/res/drawable-xxxhdpi/cryptowallpapertwo.png
+/captures/de.bitsharesmunich.blockpos_2016.09.02_15.23.txt
+
+# Fabric plugin
+app/fabric.properties
+
+# Allocation tracker
+/captures/*
