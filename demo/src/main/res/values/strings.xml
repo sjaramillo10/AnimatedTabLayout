@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">AnimatedTabLayout</string>
+    <string name="tab_title">Tab title %1$d</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 </resources>
