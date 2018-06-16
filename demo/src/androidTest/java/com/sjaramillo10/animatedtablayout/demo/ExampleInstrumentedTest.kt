@@ -1,4 +1,4 @@
-package com.sjaramillo10.animatedtablayout
+package com.sjaramillo10.animatedtablayout.demo
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4
