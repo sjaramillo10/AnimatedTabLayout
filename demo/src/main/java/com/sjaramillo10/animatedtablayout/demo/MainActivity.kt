@@ -32,9 +32,9 @@ class MainActivity : AppCompatActivity() {
         val pagerAdapter = PagerAdapter(supportFragmentManager)
         viewPager.adapter = pagerAdapter
 
-        tabLayout.setupWithViewPager(viewPager)
+        animatedTabLayout.setupWithViewPager(viewPager)
 
-        tabLayout2.setupWithViewPager(viewPager)
+        tabLayout.setupWithViewPager(viewPager)
 
         smallText = 16f
         bigText = 20f
@@ -48,10 +48,10 @@ class MainActivity : AppCompatActivity() {
 
         // Initialize tabs with custom views
         var i = 0
-        val count = tabLayout2.tabCount
+        val count = tabLayout.tabCount
         while (i < count) {
             val textView = LayoutInflater.from(this).inflate(R.layout.custom_tab, null) as TextView
-            textView.text = tabLayout2.getTabAt(i)!!.text
+            textView.text = tabLayout.getTabAt(i)!!.text
 
             if (i == 0) {
                 textView.textSize = bigText
@@ -61,12 +61,12 @@ class MainActivity : AppCompatActivity() {
                 textView.setTextColor(semitransparentWhite)
             }
 
-            tabLayout2.getTabAt(i)!!.customView = textView
+            tabLayout.getTabAt(i)!!.customView = textView
             i++
         }
 
         // Change selected/unselected  text color and nice animation to change the text size
-        tabLayout2.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
                 val textView = tab.customView as TextView?
 
