@@ -35,28 +35,31 @@ class AnimatedTabLayout(context: Context, attrs: AttributeSet) : TabLayout(conte
             array.recycle()
         }
 
+        // Attaches the listeners to animate select/unselect tab
         addOnTabSelectedListener(this)
 
+        // Tab indicator is not needed, as the selected text clearly indicates the selected tab
         setSelectedTabIndicatorHeight(0)
     }
 
+    /**
+     * Adds a TextView as the Tab's custom view with predefined unselected values
+     */
     override fun addTab(tab: Tab, position: Int, setSelected: Boolean) {
         super.addTab(tab, position, setSelected)
 
         val textView = LayoutInflater.from(context).inflate(R.layout.custom_tab, null) as TextView
         textView.text = tab.text
 
-        if(position == 0) {
-            textView.textSize = mBigText
-            textView.setTextColor(mSelectedTabTextColor)
-        } else {
-            textView.textSize = mSmallText
-            textView.setTextColor(mUnselectedTabTextColor)
-        }
+        textView.textSize = mSmallText
+        textView.setTextColor(mUnselectedTabTextColor)
 
         tab.customView = textView
     }
 
+    /**
+     * Creates animation to Tab, from unselected to selected state
+     */
     override fun onTabUnselected(tab: Tab?) {
         val textView = tab!!.customView as TextView?
 
@@ -75,6 +78,9 @@ class AnimatedTabLayout(context: Context, attrs: AttributeSet) : TabLayout(conte
         animator.start()
     }
 
+    /**
+     * Creates animation to Tab, from selected to unselected state
+     */
     override fun onTabSelected(tab: Tab?) {
         val textView = tab!!.customView as TextView?
 
@@ -94,6 +100,6 @@ class AnimatedTabLayout(context: Context, attrs: AttributeSet) : TabLayout(conte
     }
 
     override fun onTabReselected(tab: Tab?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        // Not used
     }
 }

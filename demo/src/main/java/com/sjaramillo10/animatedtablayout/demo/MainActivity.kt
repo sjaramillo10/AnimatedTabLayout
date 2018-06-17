@@ -17,12 +17,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // Instantiates the PagerAdapter
         val pagerAdapter = PagerAdapter(supportFragmentManager)
+        // Set pagerAdapter as viewPager's adapter
         viewPager.adapter = pagerAdapter
-
+        // Sets up our AnimatedTabLayout with the ViewPager
         animatedTabLayout.setupWithViewPager(viewPager)
     }
 
+    /**
+     * Pager adapter to create the placeholder fragments
+     */
     private inner class PagerAdapter internal constructor(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
         override fun getItem(position: Int): Fragment {
