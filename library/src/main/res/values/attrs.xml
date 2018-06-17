@@ -6,5 +6,6 @@
         <attr name="selectedTabTextColor" format="color"/>
         <attr name="unselectedTabTextColor" format="color"/>
         <attr name="animationDuration" format="integer"/>
+        <attr name="tabSpacing" format="dimension"/>
     </declare-styleable>
 </resources>

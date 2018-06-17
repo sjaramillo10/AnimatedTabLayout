@@ -19,6 +19,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
+        app:tabPaddingStart="0dp"
+        app:tabPaddingEnd="0dp"
         app:animationDuration="500"
         app:selectedTabTextColor="@color/white"
         app:unselectedTabTextColor="@color/semiTransparentWhite"
