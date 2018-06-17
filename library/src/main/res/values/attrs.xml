@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="AnimatedTabLayout">
-        <attr name="bigText" format="dimension"/>
-        <attr name="smallText" format="dimension"/>
+        <attr name="bigTextSize" format="dimension"/>
+        <attr name="smallTextSize" format="dimension"/>
         <attr name="selectedTabTextColor" format="color"/>
         <attr name="unselectedTabTextColor" format="color"/>
+        <attr name="animationDuration" format="integer"/>
     </declare-styleable>
 </resources>
