@@ -26,6 +26,7 @@
         app:unselectedTabTextColor="@color/semiTransparentWhite"
         app:smallTextSize="16sp"
         app:bigTextSize="20sp"
+        app:tabSpacing="32dp"
         app:tabMode="scrollable"/>
 
     <android.support.v4.view.ViewPager

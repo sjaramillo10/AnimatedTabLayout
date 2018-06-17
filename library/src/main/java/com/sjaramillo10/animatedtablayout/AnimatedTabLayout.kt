@@ -25,7 +25,7 @@ class AnimatedTabLayout(context: Context, attrs: AttributeSet) : TabLayout(conte
     /**
      * Equal spacing between tabs and start-to-first-tab and last-tab-to-end
      */
-    private var mTabSpacing: Float = dpToPx(16f, context)
+    private var mTabSpacing: Float = dpToPx(32f, context)
 
     /** Helper method to convert from SP (Scale-independent Pixels) to PX (Pixels) */
     private fun spToPx(sp: Float, context: Context) =
@@ -86,11 +86,11 @@ class AnimatedTabLayout(context: Context, attrs: AttributeSet) : TabLayout(conte
         textView.setPadding(0,0,0,0)
 
         if(position == 0)
-            textView.setPadding(mTabSpacing.toInt()*2, 0,
-                mTabSpacing.toInt()*2, 0)
+            textView.setPadding(mTabSpacing.toInt(), 0,
+                mTabSpacing.toInt(), 0)
         else
             textView.setPadding(0, 0,
-                    mTabSpacing.toInt()*2, 0)
+                    mTabSpacing.toInt(), 0)
 
         tab.customView = textView
     }
