@@ -14,16 +14,6 @@
         app:titleTextColor="#fff"
         android:background="@color/colorPrimary" />
 
-    <android.support.design.widget.TabLayout
-        android:id="@+id/tabLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        app:tabIndicatorHeight="0dp"
-        app:tabTextColor="#8fff"
-        app:tabSelectedTextColor="#fff"
-        app:tabMode="scrollable"/>
-
     <com.sjaramillo10.animatedtablayout.AnimatedTabLayout
         android:id="@+id/animatedTabLayout"
         android:layout_width="match_parent"

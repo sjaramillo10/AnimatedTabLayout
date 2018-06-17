@@ -4,12 +4,11 @@ import android.animation.ValueAnimator
 import android.content.Context
 import android.graphics.Color
 import android.support.design.widget.TabLayout
-import android.support.v4.view.ViewPager
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.TextView
 
-class AnimatedTabLayout(context: Context, attrs: AttributeSet) : TabLayout(context, attrs) {
+class AnimatedTabLayout(context: Context, attrs: AttributeSet) : TabLayout(context, attrs), TabLayout.OnTabSelectedListener {
 
     /** Text sizes used for the tab text animation */
     private var mSmallText: Float = 16f
@@ -35,6 +34,10 @@ class AnimatedTabLayout(context: Context, attrs: AttributeSet) : TabLayout(conte
         } finally {
             array.recycle()
         }
+
+        addOnTabSelectedListener(this)
+
+        setSelectedTabIndicatorHeight(0)
     }
 
     override fun addTab(tab: Tab, position: Int, setSelected: Boolean) {
@@ -53,45 +56,44 @@ class AnimatedTabLayout(context: Context, attrs: AttributeSet) : TabLayout(conte
 
         tab.customView = textView
     }
-    
-//
-//    override fun addOnTabSelectedListener(listener: OnTabSelectedListener) {
-//        super.addOnTabSelectedListener(listener)
-//
-//        val textView = tab.customView as TextView?
-//
-//        textView!!.setTextColor(mSelectedTabTextColor)
-//
-//        val animationDuration = 500 // Animation duration in ms
-//
-//        val animator = ValueAnimator.ofFloat(mSmallText, mBigText)
-//        animator.duration = animationDuration.toLong()
-//
-//        animator.addUpdateListener { valueAnimator ->
-//            val animatedValue = valueAnimator.animatedValue as Float
-//            textView.textSize = animatedValue
-//        }
-//
-//        animator.start()
-//    }
-//
-//    override fun clearOnTabSelectedListeners() {
-//        super.clearOnTabSelectedListeners()
-//
-//        val textView = tab.customView as TextView?
-//
-//        textView!!.setTextColor(mUnselectedTabTextColor)
-//
-//        val animationDuration = 500 // Animation duration in ms
-//
-//        val animator = ValueAnimator.ofFloat(mBigText, mSmallText)
-//        animator.duration = animationDuration.toLong()
-//
-//        animator.addUpdateListener { valueAnimator ->
-//            val animatedValue = valueAnimator.animatedValue as Float
-//            textView.textSize = animatedValue
-//        }
-//
-//        animator.start()
-//    }
+
+    override fun onTabUnselected(tab: Tab?) {
+        val textView = tab!!.customView as TextView?
+
+        textView!!.setTextColor(mUnselectedTabTextColor)
+
+        val animationDuration = 500 // Animation duration in ms
+
+        val animator = ValueAnimator.ofFloat(mBigText, mSmallText)
+        animator.duration = animationDuration.toLong()
+
+        animator.addUpdateListener { valueAnimator ->
+            val animatedValue = valueAnimator.animatedValue as Float
+            textView.textSize = animatedValue
+        }
+
+        animator.start()
+    }
+
+    override fun onTabSelected(tab: Tab?) {
+        val textView = tab!!.customView as TextView?
+
+        textView!!.setTextColor(mSelectedTabTextColor)
+
+        val animationDuration = 500 // Animation duration in ms
+
+        val animator = ValueAnimator.ofFloat(mSmallText, mBigText)
+        animator.duration = animationDuration.toLong()
+
+        animator.addUpdateListener { valueAnimator ->
+            val animatedValue = valueAnimator.animatedValue as Float
+            textView.textSize = animatedValue
+        }
+
+        animator.start()
+    }
+
+    override fun onTabReselected(tab: Tab?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 }
