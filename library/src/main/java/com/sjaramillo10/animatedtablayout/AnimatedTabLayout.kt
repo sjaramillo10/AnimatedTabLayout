@@ -4,6 +4,7 @@ import android.animation.ValueAnimator
 import android.content.Context
 import android.graphics.Color
 import android.support.design.widget.TabLayout
+import android.support.v4.view.ViewCompat
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.LayoutInflater
@@ -22,18 +23,9 @@ class AnimatedTabLayout(context: Context, attrs: AttributeSet) : TabLayout(conte
     /** Tab select/unselect animation duration in ms */
     private var mAnimationDuration: Int = 500
 
-    /**
-     * Equal spacing between tabs and start-to-first-tab and last-tab-to-end
-     */
-    private var mTabSpacing: Float = dpToPx(32f, context)
-
     /** Helper method to convert from SP (Scale-independent Pixels) to PX (Pixels) */
     private fun spToPx(sp: Float, context: Context) =
             TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, sp, context.resources.displayMetrics)
-
-    /** Helper method to convert from DP (Density-independent Pixels) to PX (Pixels) */
-    private fun dpToPx(sp: Float, context: Context) =
-            TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, sp, context.resources.displayMetrics)
 
     init {
         val array = context.theme.obtainStyledAttributes(attrs, R.styleable.AnimatedTabLayout,
@@ -55,10 +47,6 @@ class AnimatedTabLayout(context: Context, attrs: AttributeSet) : TabLayout(conte
             // Get selected/unselected animation duration
             mAnimationDuration = array.getInt(R.styleable.AnimatedTabLayout_animationDuration,
                     mAnimationDuration)
-
-            // Get start and end tab additional padding
-            mTabSpacing = array.getDimensionPixelSize(R.styleable.AnimatedTabLayout_tabSpacing,
-                    mTabSpacing.toInt()).toFloat()
 
         } finally {
             array.recycle()
@@ -82,15 +70,6 @@ class AnimatedTabLayout(context: Context, attrs: AttributeSet) : TabLayout(conte
 
         textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, mSmallTextSize)
         textView.setTextColor(mUnselectedTabTextColor)
-
-        textView.setPadding(0,0,0,0)
-
-        if(position == 0)
-            textView.setPadding(mTabSpacing.toInt(), 0,
-                mTabSpacing.toInt(), 0)
-        else
-            textView.setPadding(0, 0,
-                    mTabSpacing.toInt(), 0)
 
         tab.customView = textView
     }
