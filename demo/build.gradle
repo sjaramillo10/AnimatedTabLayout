@@ -8,8 +8,8 @@ android {
         applicationId 'com.sjaramillo10.animatedtablayout.example'
         minSdkVersion 19
         targetSdkVersion 27
-        versionCode 1
-        versionName "1.0"
+        versionCode _versionCode
+        versionName "$_versionName"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
