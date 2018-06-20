@@ -13,18 +13,18 @@ import android.widget.TextView
 class AnimatedTabLayout(context: Context, attrs: AttributeSet) : TabLayout(context, attrs), TabLayout.OnTabSelectedListener {
 
     /** Identifies if text should be bold */
-    private var mBoldText: Boolean = false
+    private var mTabBoldText: Boolean = false
 
     /** Text sizes used for the tab text animation */
-    private var mSmallTextSize: Float = spToPx(16f, context)
-    private var mBigTextSize: Float = spToPx(20f, context)
+    private var mTabSmallTextSize: Float = spToPx(16f, context)
+    private var mTabBigTextSize: Float = spToPx(20f, context)
 
     /** Colors used for the selected and unselected tab text animation */
     private var mSelectedTabTextColor: Int = Color.parseColor("#ffffff") // white
     private var mUnselectedTabTextColor: Int = Color.parseColor("#88ffffff") // semi transparent
 
     /** Tab select/unselect animation duration in ms */
-    private var mAnimationDuration: Int = 500
+    private var mTabAnimationDuration: Int = 500
 
     /** Helper method to convert from SP (Scale-independent Pixels) to PX (Pixels) */
     private fun spToPx(sp: Float, context: Context) =
@@ -36,13 +36,13 @@ class AnimatedTabLayout(context: Context, attrs: AttributeSet) : TabLayout(conte
 
         try {
             // Get if text should be bold
-            mBoldText = array.getBoolean(R.styleable.AnimatedTabLayout_boldText, mBoldText)
+            mTabBoldText = array.getBoolean(R.styleable.AnimatedTabLayout_tabBoldText, mTabBoldText)
 
             // Get selected/unselected text size
-            mSmallTextSize = array.getDimensionPixelSize(R.styleable.AnimatedTabLayout_smallTextSize,
-                    mSmallTextSize.toInt()).toFloat()
-            mBigTextSize = array.getDimensionPixelSize(R.styleable.AnimatedTabLayout_bigTextSize,
-                    mBigTextSize.toInt()).toFloat()
+            mTabSmallTextSize = array.getDimensionPixelSize(R.styleable.AnimatedTabLayout_tabSmallTextSize,
+                    mTabSmallTextSize.toInt()).toFloat()
+            mTabBigTextSize = array.getDimensionPixelSize(R.styleable.AnimatedTabLayout_tabBigTextSize,
+                    mTabBigTextSize.toInt()).toFloat()
 
             // Get selected/unselected colors
             mSelectedTabTextColor = array.getColor(R.styleable.AnimatedTabLayout_selectedTabTextColor,
@@ -51,8 +51,8 @@ class AnimatedTabLayout(context: Context, attrs: AttributeSet) : TabLayout(conte
                     mUnselectedTabTextColor)
 
             // Get selected/unselected animation duration
-            mAnimationDuration = array.getInt(R.styleable.AnimatedTabLayout_animationDuration,
-                    mAnimationDuration)
+            mTabAnimationDuration = array.getInt(R.styleable.AnimatedTabLayout_tabAnimationDuration,
+                    mTabAnimationDuration)
 
         } finally {
             array.recycle()
@@ -74,10 +74,10 @@ class AnimatedTabLayout(context: Context, attrs: AttributeSet) : TabLayout(conte
         val textView = LayoutInflater.from(context).inflate(R.layout.custom_tab, null) as TextView
         textView.text = tab.text
 
-        textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, mSmallTextSize)
+        textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTabSmallTextSize)
         textView.setTextColor(mUnselectedTabTextColor)
 
-        if(mBoldText)
+        if(mTabBoldText)
             textView.setTypeface(textView.typeface, Typeface.BOLD)
 
         tab.customView = textView
@@ -91,8 +91,8 @@ class AnimatedTabLayout(context: Context, attrs: AttributeSet) : TabLayout(conte
 
         textView!!.setTextColor(mUnselectedTabTextColor)
 
-        val animator = ValueAnimator.ofFloat(mBigTextSize, mSmallTextSize)
-        animator.duration = mAnimationDuration.toLong()
+        val animator = ValueAnimator.ofFloat(mTabBigTextSize, mTabSmallTextSize)
+        animator.duration = mTabAnimationDuration.toLong()
 
         animator.addUpdateListener { valueAnimator ->
             val animatedValue = valueAnimator.animatedValue as Float
@@ -110,8 +110,8 @@ class AnimatedTabLayout(context: Context, attrs: AttributeSet) : TabLayout(conte
 
         textView!!.setTextColor(mSelectedTabTextColor)
 
-        val animator = ValueAnimator.ofFloat(mSmallTextSize, mBigTextSize)
-        animator.duration = mAnimationDuration.toLong()
+        val animator = ValueAnimator.ofFloat(mTabSmallTextSize, mTabBigTextSize)
+        animator.duration = mTabAnimationDuration.toLong()
 
         animator.addUpdateListener { valueAnimator ->
             val animatedValue = valueAnimator.animatedValue as Float

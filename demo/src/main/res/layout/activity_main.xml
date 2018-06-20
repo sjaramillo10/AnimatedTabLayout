@@ -19,12 +19,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
-        app:animationDuration="500"
+        app:tabAnimationDuration="500"
         app:selectedTabTextColor="@color/white"
         app:unselectedTabTextColor="@color/semiTransparentWhite"
-        app:smallTextSize="16sp"
-        app:bigTextSize="20sp"
-        app:boldText="false"
+        app:tabSmallTextSize="16sp"
+        app:tabBigTextSize="20sp"
+        app:tabBoldText="false"
         app:tabMode="scrollable"/>
 
     <android.support.v4.view.ViewPager
