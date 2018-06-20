@@ -6,11 +6,10 @@ android {
     compileSdkVersion 27
     defaultConfig {
         applicationId 'com.sjaramillo10.animatedtablayout.example'
-        minSdkVersion 19
+        minSdkVersion 16
         targetSdkVersion 27
         versionCode _versionCode
         versionName "$_versionName"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
@@ -24,5 +23,6 @@ android {
 
 dependencies {
     implementation project(":library")
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "com.android.support:design:$support_libs_version"
 }
