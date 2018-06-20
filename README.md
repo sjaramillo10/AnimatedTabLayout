@@ -34,11 +34,12 @@ You can change some attributes, these are the default values:
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
-        app:animationDuration="500"
+        app:tabAnimationDuration="500"
         app:selectedTabTextColor="@color/white"
         app:unselectedTabTextColor="@color/semiTransparentWhite"
-        app:smallTextSize="16sp"
-        app:bigTextSize="20sp"/>
+        app:tabSmallTextSize="16sp"
+        app:tabBigTextSize="20sp"
+        app:tabBoldText="false"/>
 ```
 
 Depending on the number of tabs you may want to use the `scrollable` attribute:
@@ -53,4 +54,4 @@ For this release I am extending from the standard *TabLayout* and therefore all 
 `app:tabIndicatorHeight`
 `app:tabTextAppearance`
 
-I have some improvements in mind, stay tuned.
+For a future release I am planning to avoid extending from *TabLayout* to avoid wasting space for unused methods and also have some improvements in mind. Stay tuned.
