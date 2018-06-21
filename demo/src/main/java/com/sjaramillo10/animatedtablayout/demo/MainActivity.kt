@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // Avoid weird division between AppBar and TabLayout
         supportActionBar?.elevation = 0f
 
         // Instantiates the PagerAdapter

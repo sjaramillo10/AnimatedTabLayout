@@ -32,7 +32,7 @@ class AnimatedTabLayout(context: Context, attrs: AttributeSet) : TabLayout(conte
 
     init {
         val array = context.theme.obtainStyledAttributes(attrs, R.styleable.AnimatedTabLayout,
-                0, 0)
+                0, R.style.Widget_Design_TabLayout)
 
         try {
             // Get if text should be bold
