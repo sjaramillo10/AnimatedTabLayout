@@ -12,24 +12,24 @@ A nice Animated TabLayout for Android
 
 ```groovy
 dependencies {
-   implementation 'com.github.sjaramillo10:AnimatedTabLayout:v1.0.1'
+   implementation 'com.github.sjaramillo10:AnimatedTabLayout:1.0.3'
 }
 ```
 
 Use it in your layouts:
 
 ```xml
-	<com.sjaramillo10.animatedtablayout.AnimatedTabLayout
-        android:id="@+id/animatedTabLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary" />
+<com.sjaramillo10.animatedtablayout.AnimatedTabLayout
+	android:id="@+id/animatedTabLayout"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:background="@color/colorPrimary" />
 ```
 
 You can change some attributes, these are the default values:
 
 ```xml
-	<com.sjaramillo10.animatedtablayout.AnimatedTabLayout
+<com.sjaramillo10.animatedtablayout.AnimatedTabLayout
         android:id="@+id/animatedTabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
