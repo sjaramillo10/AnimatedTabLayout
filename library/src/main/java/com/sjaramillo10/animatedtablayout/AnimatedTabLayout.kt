@@ -4,7 +4,7 @@ import android.animation.ValueAnimator
 import android.content.Context
 import android.graphics.Color
 import android.graphics.Typeface
-import android.support.design.widget.TabLayout
+import com.google.android.material.tabs.TabLayout
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.LayoutInflater
